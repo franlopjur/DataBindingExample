@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DataBindingExample</string>
+
+    <string name="detail__title_format">Android %1$s - %2$s</string>
+
+    <string name="main__empty_view">No hay elementos</string>
+</resources>

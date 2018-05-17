@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="androidVersion"
+            type="com.betabeers.databindingexample.model.AndroidVersionModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/margin__big"
+        tools:context=".ui.activity.MainActivity">
+
+        <ImageView
+            android:id="@+id/detail__img__icon"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/avatar_size"
+            android:layout_marginEnd="@dimen/margin__normal"
+            android:layout_marginLeft="@dimen/margin__normal"
+            android:layout_marginRight="@dimen/margin__normal"
+            android:layout_marginStart="@dimen/margin__normal"
+            android:layout_marginTop="@dimen/margin__normal"
+            android:contentDescription="@null"
+            app:imageUrl="@{androidVersion.urlImage}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/detail__label__title"
+            style="@style/AndroidVersionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin__normal"
+            android:layout_marginLeft="@dimen/margin__normal"
+            android:layout_marginRight="@dimen/margin__normal"
+            android:layout_marginStart="@dimen/margin__normal"
+            android:layout_marginTop="@dimen/margin__normal"
+            android:text="@{String.format(@string/detail__title_format, androidVersion.id, androidVersion.name)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail__img__icon" />
+
+        <TextView
+            android:id="@+id/detail__label__description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin__normal"
+            android:layout_marginLeft="@dimen/margin__normal"
+            android:layout_marginRight="@dimen/margin__normal"
+            android:layout_marginStart="@dimen/margin__normal"
+            android:layout_marginTop="@dimen/margin__normal"
+            android:text="@{androidVersion.description}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail__label__title" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

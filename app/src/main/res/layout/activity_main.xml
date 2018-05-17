@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.databinding.ObservableArrayList" />
+
+        <import type="com.betabeers.databindingexample.model.AndroidVersionModel" />
+
+        <variable
+            name="dataList"
+            type="ObservableArrayList&lt;AndroidVersionModel&gt;" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.MainActivity">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/main__list__android_versions"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{dataList.empty ? View.GONE : View.VISIBLE}"
+            app:layoutManager="android.support.v7.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:spanCount="2"
+            tools:listitem="@layout/row_android_version" />
+
+        <TextView
+            android:id="@+id/main__label__empty_view"
+            style="@style/EmptyViewTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin__normal"
+            android:text="@string/main__empty_view"
+            android:visibility="@{dataList.empty ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
